@@ -1,0 +1,79 @@
+﻿Analyzing lib...
+
+warning - core\services\notification_service.dart:84:16 - The declaration '_sendTokenToBackend' isn't referenced. Try removing the declaration of '_sendTokenToBackend'. - unused_element
+   info - core\providers\translation_provider.dart:163:11 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\providers\translation_provider.dart:170:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\providers\translation_provider.dart:175:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\providers\translation_provider.dart:207:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:63:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:86:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:108:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:145:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:181:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:203:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:225:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:247:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:269:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:288:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:321:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:344:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:363:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:411:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:437:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\backend_api_service.dart:466:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\background_sync_service.dart:47:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\background_sync_service.dart:56:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\background_sync_service.dart:81:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\background_sync_service.dart:84:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\notification_service.dart:23:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\notification_service.dart:88:9 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - core\services\notification_service.dart:90:9 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - features\auth\screens\login_screen.dart:112:45 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\auth\screens\splash_screen.dart:70:66 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\history\screens\history_screen.dart:49:45 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\history\screens\history_screen.dart:57:47 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\history\screens\history_screen.dart:117:45 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\settings\screens\settings_screen.dart:273:38 - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext. - use_build_context_synchronously
+   info - features\settings\user_preferences_service.dart:120:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - features\settings\user_preferences_service.dart:140:9 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - features\settings\user_preferences_service.dart:143:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - features\settings\user_preferences_service.dart:159:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - features\translation\screens\home_screen.dart:102:25 - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check. Guard a 'State.context' use with a 'mounted' check on the State, and other BuildContext use with a 'mounted' check on the BuildContext. - use_build_context_synchronously
+   info - features\translation\screens\modern_translation_screen.dart:83:5 - 'Share' is deprecated and shouldn't be used. Use SharePlus instead. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:83:11 - 'share' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:122:33 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:212:46 - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:243:27 - 'surfaceVariant' is deprecated and shouldn't be used. Use surfaceContainerHighest instead. This feature was deprecated after v3.18.0-0.1.pre. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:243:42 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:246:60 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:261:45 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:285:49 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:300:58 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:325:51 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:326:51 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:327:51 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:344:44 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:347:60 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:383:60 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:428:60 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:434:62 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\translation\screens\modern_translation_screen.dart:476:62 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:175:22 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:177:41 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:194:66 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:214:68 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:221:71 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:229:71 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:276:68 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:314:42 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\vocabulary_summary_screen.dart:335:38 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\weekly_summary_screen.dart:81:39 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\weekly_summary_screen.dart:181:51 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - features\vocabulary\screens\weekly_summary_screen.dart:190:57 - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement. - deprecated_member_use
+   info - main.dart:37:11 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - main.dart:43:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - main.dart:63:5 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - main.dart:80:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+   info - main.dart:82:7 - Don't invoke 'print' in production code. Try using a logging framework. - avoid_print
+
+75 issues found.

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "605821517608",
+    "project_id": "langxc-46763",
+    "storage_bucket": "langxc-46763.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605821517608:android:1117803c4c77a7632c9a1d",
+        "android_client_info": {
+          "package_name": "com.example.langxc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605821517608-v2mh86o0u58b1c2acj7re4qngrh2l52f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjpvuWvcRucagAzKFwqelTQbHJ6Ema9oU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605821517608-v2mh86o0u58b1c2acj7re4qngrh2l52f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,38 @@
+services:
+  # PocketBase (Database & Auth)
+  pocketbase:
+    image: ghcr.io/muchobien/pocketbase:latest
+    container_name: langxc_pocketbase
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./pb_data:/pb/pb_data
+    # command: --encryptionEnv=PB_ENCRYPTION_KEY # Optional: secure your data at rest
+
+    # FastAPI Backend
+  api:
+    build: .
+    container_name: langxc_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - POCKETBASE_URL=http://pocketbase:8090
+      - APP_ENV=docker
+      # Ensure these match your actual setup or .env file
+      - POCKETBASE_EMAIL=${POCKETBASE_EMAIL}
+      - POCKETBASE_PASSWORD=${POCKETBASE_PASSWORD}
+      # If using Papago, adding placeholders here (fill in .env)
+      - PAPAGO_CLIENT_ID=${PAPAGO_CLIENT_ID}
+      - PAPAGO_CLIENT_SECRET=${PAPAGO_CLIENT_SECRET}
+    depends_on:
+      - pocketbase
+    volumes:
+      - .:/app
+  # Postgres (Kept for future reference, currently unused)
+  # db:
+  #   image: postgres:15-alpine
+  #   ...
+
+

@@ -1,0 +1,39 @@
+# FastAPI and Server
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart==0.0.6
+
+# Database
+sqlalchemy[asyncio]>=2.0.35
+asyncpg>=0.30.0
+alembic>=1.13.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0
+bcrypt==4.1.2
+
+# Validation
+pydantic>=2.10.0
+pydantic-settings>=2.6.0
+email-validator==2.1.0
+
+# CORS & Security
+# CORS is built into FastAPI via starlette.middleware.cors
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Korean NLP
+konlpy==0.6.0
+JPype1==1.5.0
+
+# Utilities
+python-dateutil==2.8.2
+httpx>=0.27.0
+
+# Push Notifications (optional - uncomment when needed)
+# firebase-admin>=6.5.0
+# apscheduler>=3.10.4
+
