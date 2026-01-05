@@ -1,136 +1,122 @@
+
 # 🚀 How to Run LangXC
 
-This guide will walk you through setting up and running the **LangXC** application locally. The app consists of three components:
+This guide will walk you through setting up and running the **LangXC** application locally. The app consists of three components that must run simultaneously:
 
-1. **PocketBase** – Database & Authentication
-2. **FastAPI** – Backend API / Middleware
-3. **Flutter** – Mobile/Web Frontend
+1.  **PocketBase** – Database & Authentication (Port 8090)
+2.  **FastAPI** – Backend API / Middleware (Port 8000)
+3.  **Flutter** – Mobile/Web Frontend
 
 ---
 
 ## 📋 Prerequisites
-
-Before you begin, make sure you have the following installed:
 
 | Tool | Version | Download |
 |------|---------|----------|
 | **Flutter SDK** | 3.10.0+ | [flutter.dev](https://flutter.dev/docs/get-started/install) |
 | **Python** | 3.10+ | [python.org](https://www.python.org/downloads/) |
 | **Git** | Latest | [git-scm.com](https://git-scm.com/downloads) |
-| **Docker** (Optional) | Latest | [docker.com](https://www.docker.com/products/docker-desktop) |
 
 ---
 
-## 🛠️ Quick Start (Manual Setup)
+## ⚙️ Step 1: Configuration (Crucial!)
 
-You need to run **3 terminals** simultaneously:
+**You must configure the environment variables correctly or the backend will fail to connect.**
 
-### **Terminal 1: PocketBase (Database)**
+1.  Navigate to `translation_api/`.
+2.  Copy the example file:
+    ```bash
+    cp .env.example .env
+    ```
+3.  **Edit `.env`** and fill in the following:
+
+    ```ini
+    # App Security
+    SECRET_KEY=change-this-to-a-long-random-string
+    DEBUG=True
+
+    # PocketBase Admin Credentials
+    # IMPORTANT: These MUST match the Admin account you create in Step 2.
+    POCKETBASE_EMAIL=admin@example.com
+    POCKETBASE_PASSWORD=your-secure-password
+    POCKETBASE_URL=http://localhost:8090
+    ```
+
+---
+
+## 🛠️ Step 2: Start PocketBase (Database)
+
+Open **Terminal 1**:
 
 ```bash
 cd translation_api/pocketbase
 ./pocketbase.exe serve
 ```
 
-> 📌 **Admin UI:** [http://127.0.0.1:8090/_/](http://127.0.0.1:8090/_/)
+1.  Go to **[http://127.0.0.1:8090/_/](http://127.0.0.1:8090/_/)** in your browser.
+2.  **Create your Admin Account** (email/password).
+3.  **UPDATE YOUR `.env` FILE** (from Step 1) to match this email and password exactly.
 
-### **Terminal 2: FastAPI (Backend API)**
+---
+
+## 🚀 Step 3: Start FastAPI (Backend)
+
+Open **Terminal 2**:
 
 ```bash
-# Navigate to backend directory
 cd translation_api
 
-# Create virtual environment (first time only)
+# 1. Create/Activate Virtual Environment
 python -m venv .venv
+.\.venv\Scripts\activate  # Windows
+# or: source .venv/bin/activate  # Mac/Linux
 
-# Activate virtual environment
-# Windows:
-.\.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
-
-# Install dependencies (first time only)
+# 2. Install Dependencies
 pip install -r requirements.txt
 
-# Copy environment file (first time only)
-cp .env.example .env
-# Edit .env with your credentials if needed
+# 3. Run Server
+# Development (Auto-reload):
+python -m uvicorn main:app --reload
 
-# Run the FastAPI server
-uvicorn main:app --reload
+# Production (Gunicorn):
+# gunicorn -c gunicorn_conf.py main:app
 ```
 
-> 📌 **API Docs (Swagger):** [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+> **Verify:** Open [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). You should see the Swagger UI.
 
-### **Terminal 3: Flutter (Frontend)**
+---
+
+## 📱 Step 4: Start Flutter (Frontend)
+
+Open **Terminal 3**:
 
 ```bash
-# Get dependencies (first time only)
+# 1. Install Dependencies
 flutter pub get
 
-# Run on Chrome (Web)
-flutter run -d chrome
-
-# Run on Android Emulator
-flutter run -d android
-
-# Run on Windows Desktop
-flutter run -d windows
-```
-
----
-
-## 🐳 Docker Setup (Alternative)
-
-If you prefer using Docker, you can run PocketBase and FastAPI together:
-
-```bash
-cd translation_api
-
-# Start all services
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop services
-docker-compose down
-```
-
-Then run Flutter separately:
-
-```bash
+# 2. Run on Chrome (Recommended for Dev)
 flutter run -d chrome
 ```
 
 ---
 
-## ⚙️ Environment Configuration
+## 🐛 Troubleshooting
 
-### Backend `.env` File
+### ❌ Backend Connection Error (404 / Client Error)
+*   **Cause:** Your `.env` credentials do not match the PocketBase Admin account.
+*   **Fix:** Check `POCKETBASE_EMAIL` and `POCKETBASE_PASSWORD` in `.env`. Restart the backend after changing.
 
-Create a `.env` file in the `translation_api/` directory with the following:
+### ❌ Registration Failed with "Status 200"
+*   **Cause:** Frontend expecting 201 but Backend returning 200.
+*   **Fix:** This was fixed in the latest update. Ensure you are on the latest `main` branch.
 
-```env
-# PocketBase Admin Credentials
-POCKETBASE_EMAIL=your-email@example.com
-POCKETBASE_PASSWORD=your-secure-password
+### ❌ "Client has been closed" Error
+*   **Cause:** Old PocketBase client code prematurely closing connections.
+*   **Fix:** Update repository used the fixed `PocketBaseClient` class.
 
-# Papago API Keys (For Translation)
-PAPAGO_CLIENT_ID=your-papago-client-id
-PAPAGO_CLIENT_SECRET=your-papago-client-secret
-
-# App Settings
-DEBUG=True
-```
-
-### Android Emulator Note
-
-If running on an **Android Emulator**, change `localhost` to `10.0.2.2` in:
-
-```
-lib/core/services/backend_api_service.dart
-```
+### ❌ Android Emulator Connection Refused
+*   **Fix:** Android emulators cannot use `localhost`.
+    *   Change `baseUrl` in `lib/core/services/backend_api_service.dart` to `http://10.0.2.2:8000`.
 
 ---
 
@@ -138,88 +124,6 @@ lib/core/services/backend_api_service.dart
 
 | Service | URL | Description |
 |---------|-----|-------------|
-| **Flutter Web** | [http://localhost:8080](http://localhost:8080) | Frontend application |
-| **FastAPI** | [http://127.0.0.1:8000](http://127.0.0.1:8000) | Backend API |
-| **Swagger Docs** | [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) | API documentation |
-| **PocketBase Admin** | [http://127.0.0.1:8090/_/](http://127.0.0.1:8090/_/) | Database admin panel |
-
----
-
-## 🧪 Testing the Backend
-
-Run the API tests:
-
-```bash
-cd translation_api
-pytest test_api.py -v
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-| Problem | Solution |
-|---------|----------|
-| `uvicorn: command not found` | Activate the virtual environment first |
-| `CORS errors in browser` | Ensure FastAPI is running on port 8000 |
-| `Connection refused on Android` | Use `10.0.2.2` instead of `localhost` |
-| `PocketBase not connecting` | Make sure PocketBase is running on port 8090 |
-| `Flutter web not loading` | Check if all 3 services are running |
-
-### Reset Everything
-
-```bash
-# Reset Flutter
-flutter clean
-flutter pub get
-
-# Reset Python environment
-cd translation_api
-rm -rf .venv
-python -m venv .venv
-source .venv/bin/activate  # or .\.venv\Scripts\activate on Windows
-pip install -r requirements.txt
-```
-
----
-
-## 📱 Running on Different Platforms
-
-```bash
-# List available devices
-flutter devices
-
-# Run on specific device
-flutter run -d <device-id>
-
-# Build for production
-flutter build web
-flutter build apk
-flutter build windows
-```
-
----
-
-## 📚 Additional Resources
-
-- [BACKEND_INTEGRATION.md](./BACKEND_INTEGRATION.md) - Backend architecture details
-- [FIREBASE_WEB_SETUP.md](./FIREBASE_WEB_SETUP.md) - Firebase configuration
-- [PAPAGO_WEB_SETUP.md](./PAPAGO_WEB_SETUP.md) - Papago translation API setup
-
----
-
-## ✅ Checklist
-
-Before running, ensure:
-
-- [ ] PocketBase is running (port 8090)
-- [ ] FastAPI is running (port 8000)
-- [ ] `.env` file is configured
-- [ ] Flutter dependencies are installed (`flutter pub get`)
-- [ ] All 3 terminals are running simultaneously
-
----
-
-*Happy coding! 🎉*
+| **Flutter Web** | `http://localhost:8080` | Frontend application |
+| **FastAPI** | `http://127.0.0.1:8000` | Backend API |
+| **PocketBase Admin** | `http://127.0.0.1:8090/_/` | Database Dashboard |
